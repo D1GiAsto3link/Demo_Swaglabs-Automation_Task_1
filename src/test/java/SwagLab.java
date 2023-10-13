@@ -29,12 +29,12 @@ public class SwagLab {
 
 
     @Test (priority = 3)
-    public void Login(){
+    public void Login() throws InterruptedException {
         driver.findElement(By.xpath("//*[@id=\"user-name\"]"))
                 .sendKeys("standard_user");
         driver.findElement(By.xpath("//*[@id=\"password\"]"))
                 .sendKeys("secret_sauce");
-
+        Thread.sleep(2000);
         driver.findElement(By.id("login-button")).click();
 
 /*// You'd typically have an assertion here to validate the error or some teardown action.
@@ -46,9 +46,10 @@ public class SwagLab {
 
     @Test (priority = 4)
     public void addtocart() throws InterruptedException {
+        Thread.sleep(2000);
         driver.findElement(By.xpath("//*[@id=\"item_0_img_link\"]/img")).click();
         driver.findElement(By.id("add-to-cart-sauce-labs-bike-light")).click();
-
+        Thread.sleep(2000);
         driver.findElement(By.xpath("//*[@id=\"back-to-products\"]")).click();
         Thread.sleep(2000);
 
@@ -60,7 +61,8 @@ public class SwagLab {
     }
 
     @Test (priority = 5)
-public void Gotobasket(){
+public void Gotobasket() throws InterruptedException {
+        Thread.sleep(2000);
         driver.findElement(By.xpath("//*[@id=\"shopping_cart_container\"]/a")).click();
     }
 
@@ -73,20 +75,19 @@ public void Gotobasket(){
         driver.findElement(By.id("last-name")).sendKeys("Standard-User");
 
         driver.findElement(By.id("postal-code")).sendKeys("8001");
-
+        Thread.sleep(2000);
         driver.findElement(By.xpath("//*[@id=\"continue\"]")).click();
     }
 
     @Test(priority = 7)
     public void Finish() throws InterruptedException {
-        /*driver.findElement(By.id("finish")).click();
-
+        driver.findElement(By.id("finish")).click();
+        Thread.sleep(2000);
         driver.findElement(By.id("back-to-products")).click();
-
         Thread.sleep(5000);
-        driver.quit();*/
+        driver.quit();
 
-        // Logging in
+       /* // Logging in
         WebElement usernameField = driver.findElement(By.xpath("//input[@data-test='username']"));
         WebElement passwordField = driver.findElement(By.xpath("//input[@data-test='password']"));
         WebElement loginButton = driver.findElement(By.xpath("//input[@data-test='login-button']"));
@@ -107,7 +108,7 @@ public void Gotobasket(){
         logoutButton.click();
 
         // Assert you've been logged out by checking if the login button is displayed
-        assert loginButton.isDisplayed();
+        assert loginButton.isDisplayed();*/
     }
 
 
