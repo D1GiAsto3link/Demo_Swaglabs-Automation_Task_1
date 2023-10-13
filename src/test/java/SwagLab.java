@@ -41,7 +41,9 @@ public class SwagLab {
         WebElement errorMessage = driver.findElement(By.xpath("//h3[@data-test='error']"));
         assert errorMessage.getText().contains("Epic sadface");*/
 
-
+// Optional: Assert some behavior to verify login. Here, we're checking for a specific item's existence.
+        WebElement itemLabel = driver.findElement(By.xpath("//div[contains(text(),'Sauce Labs Backpack')]"));
+        if (!itemLabel.isDisplayed()) throw new AssertionError();
     }
 
     @Test (priority = 4)
@@ -85,30 +87,17 @@ public void Gotobasket() throws InterruptedException {
         Thread.sleep(2000);
         driver.findElement(By.id("back-to-products")).click();
         Thread.sleep(5000);
-        driver.quit();
-
-       /* // Logging in
-        WebElement usernameField = driver.findElement(By.xpath("//input[@data-test='username']"));
-        WebElement passwordField = driver.findElement(By.xpath("//input[@data-test='password']"));
-        WebElement loginButton = driver.findElement(By.xpath("//input[@data-test='login-button']"));
-
-        usernameField.sendKeys("standard_user");
-        passwordField.sendKeys("secret_sauce");
-        loginButton.click();
-
-        // Optional: Assert some behavior to verify login. Here, we're checking for a specific item's existence.
-        WebElement itemLabel = driver.findElement(By.xpath("//div[contains(text(),'Sauce Labs Backpack')]"));
-        assert itemLabel.isDisplayed();
-
         // Logging out
         WebElement menuButton = driver.findElement(By.xpath("//button[@id='react-burger-menu-btn']"));
         menuButton.click();
-
+        Thread.sleep(5000);
         WebElement logoutButton = driver.findElement(By.xpath("//a[@id='logout_sidebar_link']"));
         logoutButton.click();
 
-        // Assert you've been logged out by checking if the login button is displayed
-        assert loginButton.isDisplayed();*/
+        driver.quit();
+
+
+
     }
 
 
