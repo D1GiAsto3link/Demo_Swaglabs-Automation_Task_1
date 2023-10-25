@@ -12,6 +12,12 @@ public class SwagLab {
     WebDriver driver;
 
 
+/*
+    // directory where output is to be printed
+    ExtentEmailReporter email = new ExtentEmailReporter("user/build/name/");
+    ExtentReporter extent = new ExtentReports();
+extent.attachReporter(email);
+*/
 
     @Test(priority = 1)
     //this will open the browser up (basically connecting to the web)
